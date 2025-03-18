@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
               child: Container(
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/images/california.jpeg"),
+                    image: AssetImage("public/images/california.jpeg"),
                     fit: BoxFit.cover, // Makes image responsive
                   ),
                 ),
@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
                   GestureDetector(
                     onTap: () => launchUrl(Uri.parse("https://github.com/mahmerkhan")),
                     child: Image.asset(
-                      "assets/images/github-mark.png",
+                      "public/images/github-mark.png",
                       width: 30,
                       height: 30,
                     ),

@@ -49979,7 +49979,7 @@ A.QF.prototype={
 IH(a){$.a_0().m(0,this,a)}}
 A.y7.prototype={
 X(a){var s=null,r=A.adE(0,A.ab6(s,B.tP,s,s,s,s)),q=t.eE
-return new A.pl(new A.qr(A.To(B.dV,A.a([r,A.a0m(s,new A.w4(B.fW,B.ca,B.ne,B.be,s,B.IX,s,0,A.a([B.I9,B.Ef,B.I8,B.Ee,A.a3x(s,new A.oV(A.ae5(s,s,new A.kT("assets/images/github-mark.png",s,s)),30,30,s),B.cX,!1,s,s,s,s,s,s,s,s,s,s,s,s,new A.PX(),s,s,s)],q),s),s,s,s,20,20,s)],q),B.fw),s),!1,s)}}
+return new A.pl(new A.qr(A.To(B.dV,A.a([r,A.a0m(s,new A.w4(B.fW,B.ca,B.ne,B.be,s,B.IX,s,0,A.a([B.I9,B.Ef,B.I8,B.Ee,A.a3x(s,new A.oV(A.ae5(s,s,new A.kT("public/images/github-mark.png",s,s)),30,30,s),B.cX,!1,s,s,s,s,s,s,s,s,s,s,s,s,new A.PX(),s,s,s)],q),s),s,s,s,20,20,s)],q),B.fw),s),!1,s)}}
 A.PX.prototype={
 $0(){return A.a1B(A.hl("https://github.com/mahmerkhan",0,null))},
 $S:0}
@@ -51762,7 +51762,7 @@ B.cu=new A.eb(3,"hidden")
 B.dW=new A.eb(4,"paused")
 B.dX=new A.nv(0,"polite")
 B.dY=new A.nv(1,"assertive")
-B.bF=new A.kT("assets/images/california.jpeg",null,null)
+B.bF=new A.kT("public/images/california.jpeg",null,null)
 B.dZ=new A.kU(0,"up")
 B.fU=new A.kU(1,"right")
 B.e_=new A.kU(2,"down")
