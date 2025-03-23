@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
@@ -12,61 +13,99 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Stack(
-          children: [
-            /// Background Image
-            Positioned.fill(
-              child: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("public/images/california.jpeg"),
-                    fit: BoxFit.cover, // Makes image responsive
-                  ),
-                ),
-              ),
-            ),
+      home: const PortfolioScreen(),
+    );
+  }
+}
 
-            /// Text Content (Right-Top Aligned)
-            Positioned(
-              top: 20, 
-              right: 20,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+class PortfolioScreen extends StatelessWidget {
+  const PortfolioScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFF001F3F), Color.fromARGB(255, 1, 48, 96)], // Navy blue gradient
+            begin: Alignment.bottomLeft,
+            end: Alignment.topRight,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Column(
                 children: [
-                  const Text(
-                    "Muhammad Ahmer Khan",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
+                  Text(
+                    "MUHAMMAD",
+                    style: GoogleFonts.bebasNeue(
+                      fontSize: 52,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.white, // Adjusted for better contrast
                     ),
                   ),
-                  
-                  const SizedBox(height: 4),
-                  const Text(
-                    "B.S., University of Karachi, 2022",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
+                  Text(
+                    "AHMER",
+                    style: GoogleFonts.bebasNeue(
+                      fontSize: 52,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.white, // Adjusted for better contrast
                     ),
                   ),
-                  const SizedBox(height: 20),
-
-                  /// GitHub Logo with Link
-                  GestureDetector(
-                    onTap: () => launchUrl(Uri.parse("https://github.com/mahmerkhan")),
-                    child: Image.asset(
-                      "public/images/github-mark.png",
-                      width: 30,
-                      height: 30,
+                  const SizedBox(height: 5), // Space between AHMER and Khan
+                  Transform.rotate(
+                    angle: -1.57, // Rotates "Khan" vertically
+                    child: Text(
+                      "Khan",
+                      style: GoogleFonts.inter(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white, // Adjusted for better contrast
+                      ),
                     ),
                   ),
                 ],
               ),
-            ),
-          ],
+              const SizedBox(height: 30), // More space before links
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _buildLink("GitHub", "https://github.com/mahmerkhan"),
+                  _buildSeparator(),
+                  _buildLink("LinkedIn", "https://linkedin.com"),
+                  _buildSeparator(),
+                  _buildLink("Resume", "https://resume.com"),
+                ],
+              ),
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildLink(String text, String url) {
+    return GestureDetector(
+      onTap: () => launchUrl(Uri.parse(url)),
+      child: Text(
+        text,
+        style: GoogleFonts.bebasNeue(
+          fontSize: 20,
+          fontWeight: FontWeight.w500,
+          color: Colors.white, // Adjusted for better contrast
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSeparator() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Text(
+        "•",
+        style: GoogleFonts.inter(fontSize: 16, color: Colors.white), // Adjusted for better contrast
       ),
     );
   }
