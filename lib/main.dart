@@ -1,112 +1,192 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/projects_page.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const BrittanyLayout());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class BrittanyLayout extends StatelessWidget {
+  const BrittanyLayout({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const PortfolioScreen(),
+      title: 'Projects Showcase',
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: const Color(0xFF0F172A),
+      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MainPage(),
+        '/projects': (context) => const ProjectsPage(),
+      },
     );
   }
 }
 
-class PortfolioScreen extends StatelessWidget {
-  const PortfolioScreen({super.key});
+class MainPage extends StatelessWidget {
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFF001F3F), Color.fromARGB(255, 1, 48, 96)], // Navy blue gradient
-            begin: Alignment.bottomLeft,
-            end: Alignment.topRight,
-          ),
-        ),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return Row(
             children: [
-              Column(
-                children: [
-                  Text(
-                    "MUHAMMAD",
-                    style: GoogleFonts.bebasNeue(
-                      fontSize: 52,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.white, // Adjusted for better contrast
-                    ),
-                  ),
-                  Text(
-                    "AHMER",
-                    style: GoogleFonts.bebasNeue(
-                      fontSize: 52,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.white, // Adjusted for better contrast
-                    ),
-                  ),
-                  const SizedBox(height: 5), // Space between AHMER and Khan
-                  Transform.rotate(
-                    angle: -1.57, // Rotates "Khan" vertically
-                    child: Text(
-                      "Khan",
-                      style: GoogleFonts.inter(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white, // Adjusted for better contrast
-                      ),
-                    ),
-                  ),
-                ],
+              // LEFT FIXED PANEL
+              Expanded(
+                flex: 2,
+                child: Container(
+                  // width: 300,
+                  height: constraints.maxHeight,
+                  padding: const EdgeInsets.all(100),
+                  color: const Color(0xFF0F172A),
+                  child: const LeftSidebar(),
+                ),
               ),
-              const SizedBox(height: 30), // More space before links
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  _buildLink("GitHub", "https://github.com/mahmerkhan"),
-                  _buildSeparator(),
-                  _buildLink("LinkedIn", "https://linkedin.com"),
-                  _buildSeparator(),
-                  _buildLink("Resume", "https://resume.com"),
-                ],
+              // RIGHT SCROLLABLE CONTENT
+              Expanded(
+                flex: 3,
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(100),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // SectionTitle("About"),
+                      SectionText(
+                          "I’m a developer passionate about crafting accessible, pixel-perfect user interfaces that blend thoughtful design with robust engineering. My favorite work lies at the intersection of design and development, creating experiences that not only look great but are meticulously built for performance and usability."),
+                      SizedBox(height: 60),
+                      SectionTitle("Experience"),
+                      SectionText("Worked at companies like Avialdo Solutions, Innovative Network..."),
+                      SizedBox(height: 60),
+                      SectionTitle("Projects"),
+                      // SectionText("Spotify Profile, WebGL demos, React apps, Node.js APIs..."),
+                      SizedBox(height: 60),
+                      SectionTitle("More Projects"),
+                      SectionText("Blog, Side Quests, Freelance Work, Open Source..."),
+                      SizedBox(height: 60),
+                      // SectionTitle("Contact"),
+                      // SectionText("Reach me via GitHub, LinkedIn, or Instagram..."),
+                      // SizedBox(height: 100),
+                      // SectionText("Blog, Side Quests, Freelance Work, Open Source..."),
+                      // SizedBox(height: 60),
+                      // SectionTitle("Contact"),
+                      // SectionText("Reach me via GitHub, LinkedIn, or Instagram..."),
+                      // SizedBox(height: 100),
+                      SectionText("Blog, Side Quests, Freelance Work, Open Source..."),
+                      SizedBox(height: 60),
+                      SectionTitle("Contact"),
+                      SectionText("Reach me via GitHub, LinkedIn, or Instagram..."),
+                      SizedBox(height: 100),
+                      HoverText(
+                        text: "View Full Projects",
+                        onTap: () {
+                          Navigator.pushNamed(context, '/projects');
+                        },
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildLink(String text, String url) {
-    return GestureDetector(
-      onTap: () => launchUrl(Uri.parse(url)),
-      child: Text(
-        text,
-        style: GoogleFonts.bebasNeue(
-          fontSize: 20,
-          fontWeight: FontWeight.w500,
-          color: Colors.white, // Adjusted for better contrast
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSeparator() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Text(
-        "•",
-        style: GoogleFonts.inter(fontSize: 16, color: Colors.white), // Adjusted for better contrast
+          );
+        },
       ),
     );
   }
 }
+
+class LeftSidebar extends StatelessWidget {
+  const LeftSidebar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: const [
+        Text(
+          "Muhammad Ahmer Khan",
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 8),
+        Text(
+          "Mobile Applications Engineer",
+          style: TextStyle(fontSize: 16, color: Colors.grey),
+        ),
+        SizedBox(height: 24),
+        Text("ABOUT", style: TextStyle(letterSpacing: 2)),
+        SizedBox(height: 8),
+        Text("EXPERIENCE", style: TextStyle(letterSpacing: 2)),
+        SizedBox(height: 8),
+        Text("PROJECTS", style: TextStyle(letterSpacing: 2)),
+        Spacer(),
+        Row(
+          children: [
+            Icon(Icons.code),
+            SizedBox(width: 12),
+            Icon(Icons.link),
+            SizedBox(width: 12),
+            Icon(Icons.photo_camera),
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class SectionTitle extends StatelessWidget {
+  final String text;
+  const SectionTitle(this.text, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white));
+  }
+}
+
+class SectionText extends StatelessWidget {
+  final String text;
+  const SectionText(this.text, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text, style: const TextStyle(fontSize: 16, color: Colors.grey));
+  }
+}
+
+class HoverText extends StatefulWidget {
+  final String text;
+  final VoidCallback onTap;
+
+  const HoverText({super.key, required this.text, required this.onTap});
+
+  @override
+  _HoverTextState createState() => _HoverTextState();
+}
+
+class _HoverTextState extends State<HoverText> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: Text(
+          widget.text,
+          style: TextStyle(
+            fontSize: 16,
+            color: _isHovered ? Colors.white : Colors.grey,
+            decoration: _isHovered ? TextDecoration.underline : TextDecoration.none,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
