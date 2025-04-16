@@ -15,7 +15,7 @@ class BrittanyLayout extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFF0F172A),
       ),
       initialRoute: '/',
-      routes: {
+      routes: { 
         '/': (context) => const MainPage(),
         '/projects': (context) => const ProjectsPage(),
       },
