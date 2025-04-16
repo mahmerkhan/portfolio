@@ -63930,8 +63930,8 @@ A.VY.prototype={
 $0(){A.Zi(this.a).Mf("/projects",null,t.X)},
 $S:0}
 A.Ed.prototype={
-T(a){var s=null,r=A.bX("Ahmer Khan",A.ix().$2$fontSize$fontWeight(40,B.ec)),q=A.cL(s,8,s),p=A.bX("Mobile Applications Engineer",A.ix().$2$color$fontSize(B.hA,16)),o=A.cL(s,24,s),n=A.bX("ABOUT",A.ix().$1$letterSpacing(2)),m=A.cL(s,8,s),l=A.bX("EXPERIENCE",A.ix().$1$letterSpacing(2)),k=A.cL(s,8,s),j=A.bX("PROJECTS",A.ix().$1$letterSpacing(2)),i=t.af
-return A.hF(A.a([r,q,p,o,n,m,l,k,j,new A.GM(s),A.pt(A.a([A.u2(s,new A.GW(new A.xa("assets/images/github.svg",s,s,s,s),s,s),B.aw,!1,s,s,s,s,s,s,s,s,s,s,s,s,new A.VK(),s,s,s)],i),B.bA,B.P,B.b7,s)],i),B.T,B.P)}}
+T(a){var s=null,r=A.bX("Ahmer Khan",A.ix().$2$fontSize$fontWeight(40,B.ec)),q=A.cL(s,8,s),p=A.bX("Mobile Application Engineer",A.ix().$2$color$fontSize(B.hA,16)),o=A.cL(s,24,s),n=A.bX("ABOUT",A.ix().$1$letterSpacing(2)),m=A.cL(s,8,s),l=A.bX("EXPERIENCE",A.ix().$1$letterSpacing(2)),k=A.cL(s,8,s),j=A.bX("PROJECTS",A.ix().$1$letterSpacing(2)),i=t.af
+return A.hF(A.a([r,q,p,o,n,m,l,k,j,new A.GM(s),A.pt(A.a([A.u2(s,new A.GW(new A.xa("images/github.svg",s,s,s,s),s,s),B.aw,!1,s,s,s,s,s,s,s,s,s,s,s,s,new A.VK(),s,s,s)],i),B.bA,B.P,B.b7,s)],i),B.T,B.P)}}
 A.VK.prototype={
 $0(){},
 $S:0}

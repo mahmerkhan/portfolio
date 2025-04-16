@@ -341,7 +341,7 @@ class LeftSidebar extends StatelessWidget {
         ),
         SizedBox(height: 8),
         Text(
-          "Mobile Applications Engineer",
+          "Mobile Application Engineer",
           style: GoogleFonts.inter(fontSize: 16, color: Colors.grey),
         ),
         SizedBox(height: 24),
@@ -355,7 +355,7 @@ class LeftSidebar extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: (){},
-              child: SvgPicture.asset("assets/images/github.svg")),
+              child: SvgPicture.asset("images/github.svg")),
             
           ],
         )
