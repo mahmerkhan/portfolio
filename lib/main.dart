@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/projects_page.dart';
 
 void main() => runApp(const BrittanyLayout());
@@ -10,13 +12,13 @@ class BrittanyLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Projects Showcase',
+      title: 'Ahmer Khan',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: const Color(0xFF0F172A),
       ),
       initialRoute: '/',
-      routes: { 
-        '/': (context) => const MainPage(),
+      routes: {
+        '/': (context) => MainPage(),
         '/projects': (context) => const ProjectsPage(),
       },
     );
@@ -24,8 +26,9 @@ class BrittanyLayout extends StatelessWidget {
 }
 
 class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+  MainPage({super.key});
 
+  final tools = ["flutter", "android", "ios"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,30 +57,258 @@ class MainPage extends StatelessWidget {
                     children: [
                       // SectionTitle("About"),
                       SectionText(
-                          "I’m a developer passionate about crafting accessible, pixel-perfect user interfaces that blend thoughtful design with robust engineering. My favorite work lies at the intersection of design and development, creating experiences that not only look great but are meticulously built for performance and usability."),
+                          "I’m a developer passionate about crafting accessible, pixel-perfect user interfaces that blend thoughtful design with robust engineering. My favorite work lies at the intersection of design and development, creating experiences that not only look great but are meticulously built for performance and usability.\n\nCurrently, I'm a Senior Mobile App Developer at Reactree, specializing in accessibility. I contribute to the creation and maintenance of UI components that power, ensuring our platform meets web accessibility standards and best practices to deliver an inclusive user experience.\n\nIn the past, I've had the opportunity to develop software across a variety of settings from advertising agencies and large corporations to start-ups and small digital product studios. I’m usually climbing, reading, hanging out with friends"),
                       SizedBox(height: 60),
                       SectionTitle("Experience"),
-                      SectionText("Worked at companies like Avialdo Solutions, Innovative Network..."),
+                      SizedBox(height: 20),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 11, 22, 45),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: const Color.fromARGB(255, 56, 56, 56)),
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      "2024--PRESENT",
+                                      style: TextStyle(fontSize: 16), // Optional
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                                flex: 2,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Senior Mobile App Developer, Reactree Pvt. Ltd",
+                                      style: GoogleFonts.inter(fontSize: 14, color: Colors.cyan),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text("pixel-perfect user interfaces that blend thoughtful design with robust engineering. My favorite work lies at the intersection of design and development,"),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Wrap(
+                                      spacing: 10,
+                                      runSpacing: 6,
+                                      children: tools
+                                          .map((tool) => Chip(
+                                                label: Text(tool),
+                                                backgroundColor: Colors.teal[700],
+                                                labelStyle: const TextStyle(color: Colors.white, fontSize: 12),
+                                              ))
+                                          .toList(),
+                                    ),
+                                  ],
+                                ))
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 11, 22, 45),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: const Color.fromARGB(255, 56, 56, 56)),
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      "2023-—2023",
+                                      style: TextStyle(fontSize: 16), // Optional
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                                flex: 2,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Flutter Mobile App Developer, Innovative Network Pvt. Ltd",
+                                      style: GoogleFonts.inter(fontSize: 14, color: Colors.cyan),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text("pixel-perfect user interfaces that blend thoughtful design with robust engineering. My favorite work lies at the intersection of design and development,"),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Wrap(
+                                      spacing: 10,
+                                      runSpacing: 6,
+                                      children: tools
+                                          .map((tool) => Chip(
+                                                label: Text(tool),
+                                                backgroundColor: Colors.teal[700],
+                                                labelStyle: const TextStyle(color: Colors.white, fontSize: 12),
+                                              ))
+                                          .toList(),
+                                    ),
+                                  ],
+                                ))
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 11, 22, 45),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: const Color.fromARGB(255, 56, 56, 56)),
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      "2022—-2023",
+                                      style: TextStyle(fontSize: 16), // Optional
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                                flex: 2,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Junior Flutter Engineeer, Avialdo Solutions",
+                                      style: GoogleFonts.inter(fontSize: 14, color: Colors.cyan),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text("pixel-perfect user interfaces that blend thoughtful design with robust engineering. My favorite work lies at the intersection of design and development,"),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Wrap(
+                                      spacing: 10,
+                                      runSpacing: 6,
+                                      children: tools
+                                          .map((tool) => Chip(
+                                                label: Text(tool),
+                                                backgroundColor: Colors.teal[700],
+                                                labelStyle: const TextStyle(color: Colors.white, fontSize: 12),
+                                              ))
+                                          .toList(),
+                                    ),
+                                  ],
+                                ))
+                          ],
+                        ),
+                      ),
                       SizedBox(height: 60),
+
                       SectionTitle("Projects"),
                       // SectionText("Spotify Profile, WebGL demos, React apps, Node.js APIs..."),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 11, 22, 45),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: const Color.fromARGB(255, 56, 56, 56)),
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      "2022—-2023",
+                                      style: TextStyle(fontSize: 16), // Optional
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                                flex: 2,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Junior Flutter Engineeer, Avialdo Solutions",
+                                      style: GoogleFonts.inter(fontSize: 14, color: Colors.cyan),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text("pixel-perfect user interfaces that blend thoughtful design with robust engineering. My favorite work lies at the intersection of design and development,"),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Wrap(
+                                      spacing: 10,
+                                      runSpacing: 6,
+                                      children: tools
+                                          .map((tool) => Chip(
+                                                label: Text(tool),
+                                                backgroundColor: Colors.teal[700],
+                                                labelStyle: const TextStyle(color: Colors.white, fontSize: 12),
+                                              ))
+                                          .toList(),
+                                    ),
+                                  ],
+                                ))
+                          ],
+                        ),
+                      ),
                       SizedBox(height: 60),
-                      SectionTitle("More Projects"),
-                      SectionText("Blog, Side Quests, Freelance Work, Open Source..."),
-                      SizedBox(height: 60),
-                      // SectionTitle("Contact"),
-                      // SectionText("Reach me via GitHub, LinkedIn, or Instagram..."),
-                      // SizedBox(height: 100),
-                      // SectionText("Blog, Side Quests, Freelance Work, Open Source..."),
-                      // SizedBox(height: 60),
-                      // SectionTitle("Contact"),
-                      // SectionText("Reach me via GitHub, LinkedIn, or Instagram..."),
-                      // SizedBox(height: 100),
-                      SectionText("Blog, Side Quests, Freelance Work, Open Source..."),
-                      SizedBox(height: 60),
-                      SectionTitle("Contact"),
-                      SectionText("Reach me via GitHub, LinkedIn, or Instagram..."),
-                      SizedBox(height: 100),
                       HoverText(
                         text: "View Full Projects",
                         onTap: () {
@@ -103,30 +334,29 @@ class LeftSidebar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
+      children: [
         Text(
-          "Muhammad Ahmer Khan",
-          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          "Ahmer Khan",
+          style: GoogleFonts.inter(fontSize: 40, fontWeight: FontWeight.w800),
         ),
         SizedBox(height: 8),
         Text(
           "Mobile Applications Engineer",
-          style: TextStyle(fontSize: 16, color: Colors.grey),
+          style: GoogleFonts.inter(fontSize: 16, color: Colors.grey),
         ),
         SizedBox(height: 24),
-        Text("ABOUT", style: TextStyle(letterSpacing: 2)),
+        Text("ABOUT", style: GoogleFonts.inter(letterSpacing: 2)),
         SizedBox(height: 8),
-        Text("EXPERIENCE", style: TextStyle(letterSpacing: 2)),
+        Text("EXPERIENCE", style: GoogleFonts.inter(letterSpacing: 2)),
         SizedBox(height: 8),
-        Text("PROJECTS", style: TextStyle(letterSpacing: 2)),
+        Text("PROJECTS", style: GoogleFonts.inter(letterSpacing: 2)),
         Spacer(),
         Row(
           children: [
-            Icon(Icons.code),
-            SizedBox(width: 12),
-            Icon(Icons.link),
-            SizedBox(width: 12),
-            Icon(Icons.photo_camera),
+            GestureDetector(
+              onTap: (){},
+              child: SvgPicture.asset("assets/images/github.svg")),
+            
           ],
         )
       ],
@@ -140,7 +370,7 @@ class SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white));
+    return Text(text, style: GoogleFonts.inter(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white));
   }
 }
 
@@ -150,7 +380,7 @@ class SectionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text, style: const TextStyle(fontSize: 16, color: Colors.grey));
+    return Text(text, style: GoogleFonts.inter(fontSize: 16, color: Colors.grey));
   }
 }
 
@@ -179,14 +409,11 @@ class _HoverTextState extends State<HoverText> {
           widget.text,
           style: TextStyle(
             fontSize: 16,
-            color: _isHovered ? Colors.white : Colors.grey,
-            decoration: _isHovered ? TextDecoration.underline : TextDecoration.none,
+            color: _isHovered ? Colors.cyan : Colors.grey,
+            // decoration: _isHovered ? TextDecoration.underline : TextDecoration.none,
           ),
         ),
       ),
     );
   }
 }
-
-
-

@@ -13,7 +13,7 @@ class ProjectsPage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 48.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Align(
                   alignment: Alignment.centerLeft,
@@ -39,45 +39,38 @@ class ProjectsPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 32),
-                Center(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: DataTable(
-                      columnSpacing: 40, // 👈 Adjust spacing here
-                      columns: const [
-                        DataColumn(
-                          label: Text(
-                            "Year",
-                            style: TextStyle(color: Colors.white),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      return SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(minWidth: constraints.maxWidth),
+                          child: DataTable(
+                            columnSpacing: 40,
+                            columns: const [
+                              DataColumn(
+                                label: Text("Year", style: TextStyle(color: Colors.white)),
+                              ),
+                              DataColumn(
+                                label: Text("Project", style: TextStyle(color: Colors.white)),
+                              ),
+                              DataColumn(
+                                label: Text("Made at", style: TextStyle(color: Colors.white)),
+                              ),
+                              DataColumn(
+                                label: Text("Built with", style: TextStyle(color: Colors.white)),
+                              ),
+                              DataColumn(
+                                label: Text("Link", style: TextStyle(color: Colors.white)),
+                              ),
+                            ],
+                            rows: _projectRows,
                           ),
                         ),
-                        DataColumn(
-                          label: Text(
-                            "Project",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        DataColumn(
-                          label: Text(
-                            "Made at",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        DataColumn(
-                          label: Text(
-                            "Built with",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        DataColumn(
-                          label: Text(
-                            "Link",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ],
-                      rows: _projectRows,
-                    ),
+                      );
+                    },
                   ),
                 ),
               ],
@@ -195,6 +188,69 @@ final List<DataRow> _projectRows = [
     tools: ["flutter", "android", "ios"],
     link: "",
   ),
+  projectRow(
+    year: "2022",
+    project: "LinkedUnion",
+    company: "Avialdo Solutions",
+    tools: ["flutter", "android", "ios"],
+    link: "",
+  ),
+  projectRow(
+    year: "2022",
+    project: "LinkedUnion",
+    company: "Avialdo Solutions",
+    tools: ["flutter", "android", "ios"],
+    link: "",
+  ),
+  projectRow(
+    year: "2022",
+    project: "LinkedUnion",
+    company: "Avialdo Solutions",
+    tools: ["flutter", "android", "ios"],
+    link: "",
+  ),
+  projectRow(
+    year: "2022",
+    project: "LinkedUnion",
+    company: "Avialdo Solutions",
+    tools: ["flutter", "android", "ios"],
+    link: "",
+  ),
+  projectRow(
+    year: "2022",
+    project: "LinkedUnion",
+    company: "Avialdo Solutions",
+    tools: ["flutter", "android", "ios"],
+    link: "",
+  ),
+  projectRow(
+    year: "2022",
+    project: "LinkedUnion",
+    company: "Avialdo Solutions",
+    tools: ["flutter", "android", "ios"],
+    link: "",
+  ),
+  projectRow(
+    year: "2022",
+    project: "LinkedUnion",
+    company: "Avialdo Solutions",
+    tools: ["flutter", "android", "ios"],
+    link: "",
+  ),
+  projectRow(
+    year: "2022",
+    project: "LinkedUnion",
+    company: "Avialdo Solutions",
+    tools: ["flutter", "android", "ios"],
+    link: "",
+  ),
+  projectRow(
+    year: "2022",
+    project: "LinkedUnion",
+    company: "Avialdo Solutions",
+    tools: ["flutter", "android", "ios"],
+    link: "",
+  ),
 ];
 
 DataRow projectRow({
@@ -209,9 +265,8 @@ DataRow projectRow({
     DataCell(Text(project, style: _boldStyle)),
     DataCell(Text(company, style: _cellStyle)),
     DataCell(Wrap(
-      spacing: 30,
+      spacing: 10,
       runSpacing: 6,
-      
       children: tools
           .map((tool) => Chip(
                 label: Text(tool),
